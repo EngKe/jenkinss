@@ -24,7 +24,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'ls $HOME/.kube'
                 sh 'kubectl config view'
                 sh 'kubectl apply -f deployment.yaml '
                 sh 'kubectl apply -f service.yaml '
