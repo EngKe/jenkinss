@@ -24,6 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'pwd'
                 sh 'cat /home/engin/.kube/config'
                 sh 'kubectl config view'
                 sh 'kubectl apply -f deployment.yaml '
