@@ -24,6 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'pwd'
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
                 echo 'Deployement and Services created!'
