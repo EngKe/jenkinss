@@ -2,29 +2,35 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Building Image') {
             steps {
-                echo 'Hello World'
+                sh 'docker build -t kesginengin/pitonweb:lts .'
+                echo 'Image Builded!'
             }
         }
-        stage('Build') {
+        stage('Logging DockerHub') {
             steps {
-                echo 'Building'
+                sh 'cat ~/pass.txt | docker login --username kesginengin --password-stdin'
+                echo 'Logged!'
             }
         }
-        stage('Test') {
+        stage('Pushing Image') {
             steps {
-                echo 'Testing'
+                sh 'docker push kesginengin/pitonweb:lts'
+                echo 'Pushed!'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying'
+                sh 'kubectl apply -f ~/pproject/deployment.yaml'
+                sh 'kubectl apply -f ~/pproject/service.yaml'
+                echo 'Deployement and Services created!'
             }
         }
         stage('Release') {
             steps {
-                echo 'Releasing'
+                sh 'kubectl apply -f ~/pproject/ingress.yaml'
+                echo 'Released!'
             }
         }
     }
