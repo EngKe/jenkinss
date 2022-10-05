@@ -10,8 +10,9 @@ pipeline {
         }
         stage('Logging DockerHub') {
             steps {
-                sh 'cat /home/engin/pass.txt | docker login --username kesginengin --password-stdin'
-                echo 'Logged!'
+            withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+            echo 'Logged!'
             }
         }
         stage('Pushing Image') {
