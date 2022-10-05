@@ -6,7 +6,6 @@ spec:
   selector:
     app: piton-web
   ports:
-    - protocol: "TCP"
       port: 5000 # The port that the service is running on in the cluster
       targetPort: 5000 # The port exposed by the service
   type: LoadBalancer
