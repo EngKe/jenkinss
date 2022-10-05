@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'ls $HOME/. kube'
+                sh 'ls $HOME/.kube'
                 sh 'pwd'
                 sh 'cat /home/engin/.kube/config'
                 sh 'kubectl config view'
