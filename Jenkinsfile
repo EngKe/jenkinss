@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Release') {
             steps {
-                sh 'kubectl apply -f ingress.yaml --context kind-pitonweb'
+                sh 'kubectl apply -f ingress.yaml'
                 echo 'Released!'
             }
         }
