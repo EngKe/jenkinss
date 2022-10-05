@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: piton-web
+spec:
+  selector:
+    matchLabels:
+      app: piton-web
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: piton-web
+    spec:
+      containers:
+        - name: piton-web
+          image: kesginengin/pitonweb:lts # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000 # The port that the container is running on in the cluster
