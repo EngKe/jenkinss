@@ -26,9 +26,9 @@ pipeline {
             steps {
                 sh 'whoami'
                 sh 'kubectl config view'
-                sh 'kubectl apply -f deployment.yaml --context kind-pitonweb'
-                sh 'kubectl apply -f service.yaml --context kind-pitonweb'
-                echo 'Deployement and Services created! --context kind-pitonweb'
+                sh 'kubectl apply -f deployment.yaml '
+                sh 'kubectl apply -f service.yaml '
+                echo 'Deployement and Services created! '
             }
         }
         stage('Release') {
