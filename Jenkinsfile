@@ -24,15 +24,14 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'pwd'
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
-                echo 'Deployement and Services created!'
+                sh 'kubectl apply -f deployment.yaml --context pitonweb'
+                sh 'kubectl apply -f service.yaml --context pitonweb'
+                echo 'Deployement and Services created! --context pitonweb'
             }
         }
         stage('Release') {
             steps {
-                sh 'kubectl apply -f ingress.yaml'
+                sh 'kubectl apply -f ingress.yaml --context pitonweb'
                 echo 'Released!'
             }
         }
