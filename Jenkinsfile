@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'whoami'
+                sh 'ls /home/engin/.kube'
                 sh 'kubectl config view'
                 sh 'kubectl apply -f deployment.yaml '
                 sh 'kubectl apply -f service.yaml '
