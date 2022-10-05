@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingres-pitonweb
+spec:
+  rules:
+  - host: pitonweb.jenkins
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: piton-web
+            port:
+              number: 5000
+  ingressClassName: nginx
