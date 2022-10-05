@@ -33,7 +33,7 @@ pipeline {
         stage('Release') {
             steps {
                 sh 'kubectl apply -f ingress.yaml'
-                sh 'kubectl port-forward service/piton-web 5000'
+                sh 'kubectl port-forward service/piton-web 5000:5000'
                 echo 'Released!'
             }
         }
