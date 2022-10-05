@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Building Image') {
             steps {
-                sh 'cd python'
-                sh 'docker build -t kesginengin/pitonweb:lts .'
+                sh 'docker build -t kesginengin/pitonweb:lts /python'
                 echo 'Image Builded!'
             }
         }
