@@ -24,6 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'kubectl config view'
                 sh 'kubectl apply -f deployment.yaml --context kind-pitonweb'
                 sh 'kubectl apply -f service.yaml --context kind-pitonweb'
                 echo 'Deployement and Services created! --context kind-pitonweb'
