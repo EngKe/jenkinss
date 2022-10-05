@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Logging DockerHub') {
             steps {
-                sh 'cat ~/pass.txt | docker login --username kesginengin --password-stdin'
+                sh 'cat /home/engin/pass.txt | docker login --username kesginengin --password-stdin'
                 echo 'Logged!'
             }
         }
