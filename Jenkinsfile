@@ -24,14 +24,14 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'kubectl apply -f deployment.yaml --context pitonweb'
-                sh 'kubectl apply -f service.yaml --context pitonweb'
-                echo 'Deployement and Services created! --context pitonweb'
+                sh 'kubectl apply -f deployment.yaml --context kind-pitonweb'
+                sh 'kubectl apply -f service.yaml --context kind-pitonweb'
+                echo 'Deployement and Services created! --context kind-pitonweb'
             }
         }
         stage('Release') {
             steps {
-                sh 'kubectl apply -f ingress.yaml --context pitonweb'
+                sh 'kubectl apply -f ingress.yaml --context kind-pitonweb'
                 echo 'Released!'
             }
         }
