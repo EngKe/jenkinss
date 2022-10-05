@@ -14,6 +14,7 @@ pipeline {
         	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             echo 'Logged!'
             }
+          }
         }
         stage('Pushing Image') {
             steps {
