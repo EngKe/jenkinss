@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Pushing Image') {
             steps {
-                sh 'docker push kesginengin/pitonweb:lts'
+                sh 'docker push gcr.io/august-monument-359709/pitonweb:latest'
                 echo 'Pushed!'
             }
         }
