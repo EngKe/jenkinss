@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Building Image') {
             steps {
-                sh 'docker build -t gcr.io/august-monument-359709/pitonweb:lts python'
+                sh 'docker build -t gcr.io/august-monument-359709/pitonweb:latest python'
                 echo 'Image Builded!'
             }
         }
